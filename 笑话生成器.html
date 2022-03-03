@@ -1,0 +1,60 @@
+<div>
+    <label for="customname">输入自定义名字:</label>
+    <input id="customname" type="text" placeholder="李雷" />
+</div>
+<div>
+        <label for="metric">公制</label>
+        <input id="metric" type="radio" name="measure" value="metric" checked />
+        <label for="american">美制</label>
+        <input id="american" type="radio" name="measure" value="american" />
+</div>
+<div>
+    <button class="reandomize">生成随机笑话<tton>
+</div>
+<p class="story"></p>
+<script>
+const customName = document.getElementById('customname');
+const american = document.getElementById('american');
+const story = document.querySelector('.story');
+
+function randomValueFromArray(array){
+    const random = Math.floor(Math.random()* array.length);
+    return array[random];
+}
+let storyText = `今天气温35摄氏度，：insertx:出门散步。
+当走到：inserty:门前时，突然就：insertz:。
+人们都惊呆了，李雷全程目睹但并没有慌，
+因为：insertx:是一个140公斤的胖子，天气又那么热。`;
+let insertX = ['怪兽威利','大老爹','圣诞老人'];
+let insetrY = ['肯德基','迪士尼乐园','白宫'];
+let insertZ = ['自燃了','在人行道化成了一坨泥','变成一只鼻涕虫爬走了'];
+randomize.addEventListener('click',result);
+function result(){
+    let newStory = storyText;
+
+    let xItem = randomValueFromArray(insertX);
+    let yItem = randomValueFromArray(insetrY);
+    let zItem = randomValueFromArray(insertZ);
+
+    newStory = newStory.replace(':insertx:',xItem);
+    newStory = newStory.replace(':inserty',yItem);
+    newStory = newStory.replace(':insertZ:',zItem);
+
+    if(customName.value !== ''){
+        const name = customName.value;
+        newStory = newStory.replace('李雷',name);
+    }
+
+    if(american.checked){
+        const weight = Math.round(140 * 2.20462)+'磅';
+        const temperature = Math.round(35 * 9 / 5 + 32)+'华氏度';
+        newStory = newStory.replace('35摄氏度',temperature);
+        newStory = newStory.replace('140公斤',weight);
+    }
+
+    story.textContent = newStory;
+    story.style.visibility = 'visible';
+}
+</script>
+
+
