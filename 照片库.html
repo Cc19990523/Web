@@ -13,14 +13,14 @@
     const button = document.querySelector('.dark');
     let darked = false;
     for(let i = 0; i<3; i++){
-        let imgSSrc = 'images/pic' +(i + 1)+ '.jpg';
+        let imgSrc = 'images/pic' +(i + 1)+ '.jpg';
         const img = document.createElement('img');
         img.stc = imgSrc;
         thumbBar.appendChild(img);
     }
     thumbBar.onclick = function(e){
         const eventImg = e.target;
-        consoole.log(e.target);
+        console.log(e.target);
         displayedImg.src = eventImg.src;
     };
     button.onclick = function(e){
