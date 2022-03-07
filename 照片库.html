@@ -1,9 +1,8 @@
 <h1>照片库示例</h1>
 <div class="full-img">
-    <img class="displayed-img" src="E:\Web\web\images/pic1" />
+    <img class="displayed-img" src="images/pic1.jpg" />
     <div class = "overlay"></div>
     <button class = "dark">变暗</button>
-
 </div>
 <div class = "thumb-bar"></div>
 
@@ -14,7 +13,7 @@
     const button = document.querySelector('.dark');
     let darked = false;
     for(let i = 0; i<3; i++){
-        let immSrc = 'images/pic' +(i + 1)+ '.jpg';
+        let imgSSrc = 'images/pic' +(i + 1)+ '.jpg';
         const img = document.createElement('img');
         img.stc = imgSrc;
         thumbBar.appendChild(img);
