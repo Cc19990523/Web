@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= <device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .full-img img{
+            width: 400px;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>照片库示例</h1>
+    <div class="full-img">
+        <img class="displayed-img" src="images/pic1.jpg" >
+        <div class="overlay"></div>
+        <button class="dark">变暗<tton>
+    </div>
+    <div class="thumb-bar"></div>
+    <script type="text/javascript">
+        const thumbBar=document.querySelector('.thumb-bar');
+        const overlay=document.querySelector('.overlay');
+        const displayedImg =document.querySelector('.displayed-img');
+        const button=document.querySelector('.dark');
+        let darked =false;
+        for(let i=0;i<4;i++){
+            let imgSrc='images/pic'+(i+1)+'.jpg';
+            const img=document.createElement('img');
+            img.src =imgSrc;
+    
+            img.style.width='100px';
+            img.style.height='100px';
+            thumbBar.appendChild(img);
+        }
+        thumbBar.onclick=function(e){
+            const eventImg =e.target;
+            console.log(e.target);
+            displayedImg.src=eventImg.src;
+        };
+        button.onclick=function(e){
+            if(darked){
+                button.textContent='变暗';
+                darked=false;
+                overlay.style.backgroundColor='rgba(0,0,0,0)';
+            }else {
+                button.textContent='变亮';
+                darked = true;
+                overlay.style.backgroundColor='rgba(0,0,0,1)';
+            }
+
+        };
+    </script>
+</body>
+<ml>
